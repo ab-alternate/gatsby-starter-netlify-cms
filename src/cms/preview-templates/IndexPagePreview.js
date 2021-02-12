@@ -8,19 +8,22 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        image={getAsset(data.image)}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
       />
     )
   } else {
     return <div>Loading...</div>
   }
 }
+
+// <IndexPageTemplate
+//   image={getAsset(data.image)}
+//   title={data.title}
+//   heading={data.heading}
+//   subheading={data.subheading}
+//   description={data.description}
+//   intro={data.intro || { blurbs: [] }}
+//   mainpitch={data.mainpitch || {}}
+// />
 
 IndexPagePreview.propTypes = {
   entry: PropTypes.shape({
