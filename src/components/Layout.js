@@ -23,7 +23,7 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
 
-        <script type="text/javascript" src="spacex.min.js"></script>
+        <script defer type="text/javascript" src="spacex.min.js"></script>
       </Helmet>
 
       <div>{children}</div>
