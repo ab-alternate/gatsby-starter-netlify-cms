@@ -18,6 +18,7 @@ const IndexPagePreview = (props) => {
         subtitle={data.subtitle}
         buttonText={data.buttonText}
         buttonLink={data.buttonLink}
+        image={data.image}
       />
     )
   } else {

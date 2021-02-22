@@ -83,22 +83,25 @@ export default () => (
               }
               frontmatter {
                 title
-                templateKey
-                date(formatString: "MMMM DD, YYYY")
-                featuredpost
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
               }
             }
           }
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <p>blog roll</p>}
   />
 )
+
+// <BlogRoll data={data} count={count} />
+
+// templateKey
+// date(formatString: "MMMM DD, YYYY")
+// featuredpost
+// featuredimage {
+//   childImageSharp {
+//     fluid(maxWidth: 120, quality: 100) {
+//       ...GatsbyImageSharpFluid
+//     }
+//   }
+// }

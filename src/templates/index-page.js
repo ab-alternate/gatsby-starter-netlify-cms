@@ -6,8 +6,10 @@ export const IndexPageTemplate = ({
   title,
   subtitle,
   buttonText,
-  buttonLink
+  buttonLink,
+  image
 }) => {
+  console.log('image', image);
   return (
     <div id="home">
     <div id="wrapper">
@@ -88,9 +90,18 @@ export const IndexPageTemplate = ({
       <div id="bar3" className="bar"></div>
     </button>
   </div>
-
         <div id="feature" className="section">
-          <div id="parallax" className="background background-video-cover" data-desktop="img/StarlinkL18_05_DSC_3713.jpg" data-mobile="img/StarlinkL18_05_DSC_3713.jpg"></div>
+          <div
+            id="parallax"
+            style={{
+              backgroundImage: `url(${
+                !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+              })`,
+              opacity: 1,
+              visibility: 'visible'
+            }}
+            className="background background-video-cover">
+          </div>
           <div className="section-inner feature">
             <div className="inner-left-bottom">
               <h4 className="animate">{subtitle}</h4>
@@ -192,6 +203,7 @@ const IndexPage = ({ data }) => {
         subtitle={frontmatter.subtitle}
         buttonText={frontmatter.buttonText}
         buttonLink={frontmatter.buttonLink}
+        image={frontmatter.image}
       />
     </Layout>
   );
@@ -208,6 +220,13 @@ export const pageQuery = graphql`
         subtitle
         buttonText
         buttonLink
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
